@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Iostope</title>
+    <meta name="description" content="Isotope Plugin,Portfolio">
+    <meta name="keywords" content="HTML, CSS ,Isotope Plugin,JS">
+    <meta name="author" content="Shakil">
+    <meta name="viewport" content="width=device-width" initial-scale=1.0>
+    <style type="text/css">
+        h1{
+            font-size: 36px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: center;
+            text-decoration: underline;
+            color: gray;
+        }
+        .navbar{
+            padding-top: 50px;
+        }
+        .navbar ul{
+            display: flex;
+            justify-content: center;
+        }
+        .navbar ul li{
+            list-style: none;
+            padding-right:45px;
+        }
+        .navbar ul li a{
+            font-size: 16px;
+            font-weight: 700;
+            color: #000000;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 10px;
+            border: 2px solid orange;
+            cursor: pointer;
+        }
+        .navbar ul li a:hover{
+            background: #000000;
+            color: #ffffff;
+            border: 2px solid green;
+        }
+        .grid{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .element-item img{
+            height: 200px;
+            width: 340px;
+            justify-content: space-between;
+            padding: 50px;
+        }
+    </style>
+</head>
+<body>
+   <h1>This is my Isotope</h1>
+   <nav class="navbar">
+       <ul>
+           <li class="active" data-filter="*"><a href="">All</a></li>
+           <li class="active" data-filter=".html"><a href="">HTML</a></li>
+           <li class="active" data-filter=".css"><a href="">CSS</a></li>
+           <li class="active" data-filter=".js"><a href="">JS</a></li>
+       </ul>
+   </nav>
+<div class="grid">
+      <div class="element-item html js" data-category="transition">
+        <img src="assets/images/portfolio1(10).jpg" alt="">
+      </div>
+      <div class="element-item js css html" data-category="metalloid">
+        <img src="assets/images/portfolio1(11).jpg" alt="">
+      </div>
+      <div class="element-item css" data-category="post-transition">
+        <img src="assets/images/portfolio1(6).jpg" alt="">
+      </div>
+      <div class="element-item html" data-category="post-transition">
+        <img src="assets/images/portfolio1(7).jpg" alt="">
+      </div>
+      <div class="element-item js css" data-category="transition">
+        <img src="assets/images/portfolio1(8).jpg" alt="">
+      </div>
+      <div class="element-item css html" data-category="alkali">
+        <img src="assets/images/portfolio1(9).jpg" alt="">
+      </div>
+</div>
+   <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/isotope-docs.min.js"></script>
+   <script>
+    $('.grid').isotope({
+        itemSelector:'.element-item',
+        layoutMode:'fitRows'
+    });
+    $('.navbar ul li').click(function(){
+       $('.navbar ul li').removeClass('active');
+    $(this).addClass('active');
+        
+        var selector=$(this).attr('data-filter');
+        $('.grid').isotope({
+            filter:selector
+        });
+        return false;
+    });
+
+   </script>
+</body>
+</html>
